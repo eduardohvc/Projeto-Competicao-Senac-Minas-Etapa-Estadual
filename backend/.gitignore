@@ -1,4 +1,3 @@
 node_modules/
 .env
-models/Participante.js
 models/Inscricao.js
