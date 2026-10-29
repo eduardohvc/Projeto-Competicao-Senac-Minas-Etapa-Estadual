@@ -1,6 +1,7 @@
 const express = require('express')
 require('dotenv').config()
 const { conexao } = require('./config/database')
+// const { Atividade, Participante, Inscricao } = require('./models/Index')
 
 const app = express()
 
