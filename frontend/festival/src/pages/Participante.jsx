@@ -101,6 +101,30 @@ function Participante() {
     setTelefone(e.telefone);
   };
 
+  const handleDelete = async(e) => {
+    let rota = `${url}:${porta}/api/participante/${e.id}`;
+
+    try {
+
+      const response = await fetch(rota,{
+        method: 'DELETE'
+      })
+
+      const data = await response.json()
+
+      if(response.ok){
+        alert(`Participante ${e.nome} deletado `)
+        handleConsulta()
+      }else{
+        alert(data.erro)
+      }
+
+      setCarregando(false)
+    } catch (erro) {
+      alert(`Não foi possível fazer a conexão. Erro:${erro}`);
+    }
+  };
+
   return (
     <section id="tit" className={style.secCorpo}>
       <h2>Participante</h2>
@@ -169,11 +193,15 @@ function Participante() {
                 <td>{e.telefone}</td>
                 <td>
                   <a href="#tit">
-                    <img src={editar2} alt="Botão para editar componentes" onClick={() => atualiza(e)}/>
+                    <img
+                      src={editar2}
+                      alt="Botão para editar componentes"
+                      onClick={() => atualiza(e)}
+                    />
                   </a>
                 </td>
                 <td>
-                  <img src={deletar2} alt="Botão para deletar componentes" />
+                  <img src={deletar2} alt="Botão para deletar componentes" onClick={() => handleDelete(e)}/>
                 </td>
               </tr>
             ))
