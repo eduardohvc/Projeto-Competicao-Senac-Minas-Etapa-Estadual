@@ -1,9 +1,10 @@
 import logo from "../assets/logoNova.png";
 import { Link } from "react-router-dom";
+import style from '../styles/Cabecalho.module.css'
 
 function Cabecalho() {
   return (
-    <section>
+    <section className={style.secCabecalho}>
       <div>
         <img src={logo} alt="Logo do festival experiência viva" />
         <h1>
