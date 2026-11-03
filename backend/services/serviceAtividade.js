@@ -40,8 +40,21 @@ const updateAtividade = async (id, { titulo, descricao, quantidade }) => {
   return atividade;
 };
 
+const deleteAtividade = async(id) =>{
+  const atividade = await Atividade.findByPk(id)
+
+  if (!atividade) {
+    throw new Error("Não foi possível encontrar está atividade");
+  }
+
+  atividade.destroy()
+
+  return atividade
+}
+
 module.exports = {
   createAtividade,
   getAtividade,
-  updateAtividade
+  updateAtividade,
+  deleteAtividade
 };

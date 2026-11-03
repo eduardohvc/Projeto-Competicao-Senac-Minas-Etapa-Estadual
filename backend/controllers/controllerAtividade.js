@@ -54,3 +54,20 @@ exports.updateAtividade = async(req, res) =>{
     });
   }
 }
+
+exports.deleteAtividade = async(req, res) =>{
+  try{
+    const atividade = await service.deleteAtividade(req.params.id)
+
+    res.status(200).json({
+      sucesso: true,
+      dados: atividade,
+    });
+
+  }catch(erro){
+    res.status(400).json({
+      sucesso: false,
+      erro: erro.message,
+    });
+  }
+}
