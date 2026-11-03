@@ -7,8 +7,8 @@ roteador.post('/', controller.createAtividade)
 
 roteador.get('/', controller.getAtividade)
 
-// roteador.put('/', controller.updateAtividade)
+roteador.put('/:id', controller.updateAtividade)
 
-// roteador.delete('/', controller.deleteAtividade)
+// roteador.delete('/:id', controller.deleteAtividade)
 
 module.exports = roteador

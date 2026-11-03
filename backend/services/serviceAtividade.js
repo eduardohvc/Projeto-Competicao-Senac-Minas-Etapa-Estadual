@@ -1,32 +1,47 @@
-const { Atividade } = require('../models/Atividade')
+const { Atividade } = require("../models/Atividade");
 
-const createAtividade = async({titulo, descricao, quantidade}) =>{
-
-  if(quantidade <= 0){
-    throw new Error('A quantidade de vagas precisa ser maior de 0')
+const createAtividade = async ({ titulo, descricao, quantidade }) => {
+  if (quantidade <= 0) {
+    throw new Error("A quantidade de vagas precisa ser maior de 0");
   }
 
-  if(!titulo || !descricao || !quantidade){
-    throw new Error('Preencha todos os campos corretamente')
+  if (!titulo || !descricao || !quantidade) {
+    throw new Error("Preencha todos os campos corretamente");
   }
 
-  const atividade = await Atividade.create({titulo, descricao, quantidade})
+  const atividade = await Atividade.create({ titulo, descricao, quantidade });
 
-  return atividade
-}
+  return atividade;
+};
 
-const getAtividade = async() =>{
-  const atividade = await Atividade.findAll()
+const getAtividade = async () => {
+  const atividade = await Atividade.findAll();
 
-  if(!atividade){
-    throw new Error('Nenhuma atividade encontrada')
+  if (!atividade) {
+    throw new Error("Nenhuma atividade encontrada");
   }
 
-  return atividade
+  return atividade;
+};
 
-}
+const updateAtividade = async (id, { titulo, descricao, quantidade }) => {
+  const atividade = await Atividade.findByPk(id);
 
-module.exports ={
+  if (!atividade) {
+    throw new Error("Não foi possível encontrar está atividade");
+  }
+
+  atividade.update({
+    titulo: titulo || atividade.titulo,
+    descricao: descricao || atividade.descricao,
+    quantidade: quantidade || atividade.quantidade,
+  });
+
+  return atividade;
+};
+
+module.exports = {
   createAtividade,
-  getAtividade
-}
+  getAtividade,
+  updateAtividade
+};
