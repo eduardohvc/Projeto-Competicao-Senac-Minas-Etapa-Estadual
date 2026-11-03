@@ -8,11 +8,11 @@ const Inscricao = sequelize.define('Inscricao', {
     primaryKey: true
   },
   participanteID:{
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false
   },
   atividadeID:{
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false
   }
 },

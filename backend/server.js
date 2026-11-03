@@ -4,6 +4,7 @@ const { conexao } = require('./config/database')
 const cors = require('cors')
 const routeAtividade = require('./routes/routeAtividade.js')
 const routeParticipante = require('./routes/routeParticipante.js')
+const routeInscricao = require('./routes/routeInscricao.js')
 // const { Atividade, Participante, Inscricao } = require('./models/Index')
 
 const app = express()
@@ -16,6 +17,7 @@ conexao()
 
 app.use('/api/atividade', routeAtividade)
 app.use('/api/participante', routeParticipante)
+app.use('/api/inscricao', routeInscricao)
 
 const porta = process.env.PORTA
 
