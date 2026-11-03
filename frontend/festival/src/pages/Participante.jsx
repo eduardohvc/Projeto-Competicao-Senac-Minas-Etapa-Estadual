@@ -22,7 +22,6 @@ function Participante() {
   async function handleSubmit(e) {
     e.preventDefault();
     setCarregando(true);
-    console.log(porta);
 
     let metodo = "POST";
     let dados = { nome, email, telefone };
@@ -99,6 +98,7 @@ function Participante() {
     setNome(e.nome);
     setEmail(e.email);
     setTelefone(e.telefone);
+    handleConsulta()
   };
 
   const handleDelete = async(e) => {
