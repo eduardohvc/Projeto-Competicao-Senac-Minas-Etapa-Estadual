@@ -53,6 +53,7 @@ function Participante() {
         setNome("");
         setEmail("");
         setTelefone("");
+        handleConsulta();
       } else {
         alert(data.erro);
         setId(0);
@@ -92,8 +93,16 @@ function Participante() {
     }
   };
 
+  const atualiza = async (e) => {
+    setEdicao(true);
+    setId(e.id);
+    setNome(e.nome);
+    setEmail(e.email);
+    setTelefone(e.telefone);
+  };
+
   return (
-    <section className={style.secCorpo}>
+    <section id="tit" className={style.secCorpo}>
       <h2>Participante</h2>
       <form onSubmit={handleSubmit}>
         <p>
@@ -129,7 +138,7 @@ function Participante() {
           value={telefone}
         ></InputMask>
         <div>
-          <button>Cadastrar</button>
+          {edicao ? <button>Editar</button> : <button>Cadastrar</button>}
           <button type="button" onClick={handleConsulta}>
             Listar
           </button>
@@ -159,7 +168,9 @@ function Participante() {
                 <td>{e.email}</td>
                 <td>{e.telefone}</td>
                 <td>
-                  <img src={editar2} alt="Botão para editar componentes" />
+                  <a href="#tit">
+                    <img src={editar2} alt="Botão para editar componentes" onClick={() => atualiza(e)}/>
+                  </a>
                 </td>
                 <td>
                   <img src={deletar2} alt="Botão para deletar componentes" />
