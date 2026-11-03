@@ -9,6 +9,6 @@ roteador.get('/', controller.getInscricao)
 
 roteador.put('/:id', controller.updateInscricao)
 
-// roteador.delete('/:id', controller.deleteInscricao)
+roteador.delete('/:id', controller.deleteInscricao)
 
 module.exports = roteador

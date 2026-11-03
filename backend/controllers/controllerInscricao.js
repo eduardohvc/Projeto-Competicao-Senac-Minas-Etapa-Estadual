@@ -54,19 +54,19 @@ exports.updateInscricao = async(req, res) =>{
   }
 }
 
-// exports.deleteInscricao = async(req, res) =>{
-//   try{
-//     const Inscricao = await service.deleteInscricao(req.params.id)
+exports.deleteInscricao = async(req, res) =>{
+  try{
+    const inscricao = await service.deleteInscricao(req.params.id)
 
-//     res.status(200).json({
-//       sucesso: true,
-//       dados: Inscricao,
-//     });
+    res.status(200).json({
+      sucesso: true,
+      dados: inscricao,
+    });
 
-//   }catch(erro){
-//     res.status(400).json({
-//       sucesso: false,
-//       erro: erro.message,
-//     });
-//   }
-// }
+  }catch(erro){
+    res.status(400).json({
+      sucesso: false,
+      erro: erro.message,
+    });
+  }
+}

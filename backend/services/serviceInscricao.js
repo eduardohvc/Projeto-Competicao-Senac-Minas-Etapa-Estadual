@@ -61,12 +61,16 @@ const getInscricao = async () => {
   if (!inscricao) {
     throw new Error("Nenhum Inscricao encontrado");
   }
-
+  
   return inscricao;
 };
 
 const updateInscricao = async (id, { participanteID, atividadeID }) => {
   const inscricao = await Inscricao.findByPk(id);
+  
+  if (!inscricao) {
+    throw new Error("Não foi possível encontrar está Inscrição");
+  }
 
   const participante = await Participante.findOne({
     where: {
@@ -104,9 +108,6 @@ const updateInscricao = async (id, { participanteID, atividadeID }) => {
     }
   }
 
-  if (!inscricao) {
-    throw new Error("Não foi possível encontrar está Inscricao");
-  }
 
   inscricao.update({
     participanteID: participanteID || inscricao.participanteID,
@@ -116,21 +117,21 @@ const updateInscricao = async (id, { participanteID, atividadeID }) => {
   return inscricao;
 };
 
-// const deleteInscricao = async(id) =>{
-//   const Inscricao = await Inscricao.findByPk(id)
+const deleteInscricao = async(id) =>{
+  const inscricao = await Inscricao.findByPk(id)
 
-//   if (!Inscricao) {
-//     throw new Error("Não foi possível encontrar está Inscricao");
-//   }
+  if (!inscricao) {
+    throw new Error("Não foi possível encontrar está inscrição");
+  }
 
-//   Inscricao.destroy()
+  inscricao.destroy()
 
-//   return Inscricao
-// }
+  return inscricao
+}
 
 module.exports = {
   createInscricao,
   getInscricao,
   updateInscricao,
-  // deleteInscricao
+  deleteInscricao
 };
