@@ -5,7 +5,7 @@ const roteador = express.Router()
 
 roteador.post('/', controller.createParticipante)
 
-// roteador.get('/', controller.getParticipante)
+roteador.get('/', controller.getParticipante)
 
 // roteador.put('/:id', controller.updateParticipante)
 

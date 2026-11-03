@@ -25,15 +25,15 @@ const createParticipante = async ({ nome, email, telefone }) => {
   return participante;
 };
 
-// const getParticipante = async () => {
-//   const Participante = await Participante.findAll();
+const getParticipante = async () => {
+  const participante = await Participante.findAll();
 
-//   if (!Participante) {
-//     throw new Error("Nenhuma Participante encontrada");
-//   }
+  if (!participante) {
+    throw new Error("Nenhum Participante encontrado");
+  }
 
-//   return Participante;
-// };
+  return participante;
+};
 
 // const updateParticipante = async (id, { nome, email, telefone }) => {
 //   const Participante = await Participante.findByPk(id);
@@ -65,7 +65,7 @@ const createParticipante = async ({ nome, email, telefone }) => {
 
 module.exports = {
   createParticipante,
-  // getParticipante,
+  getParticipante,
   // updateParticipante,
   // deleteParticipante
 };

@@ -21,22 +21,22 @@ exports.createParticipante = async (req, res) => {
   }
 };
 
-// exports.getParticipante = async (req, res) => {
-//   try {
-//     const Participante = await service.getParticipante()
+exports.getParticipante = async (req, res) => {
+  try {
+    const participante = await service.getParticipante()
 
-//     res.status(200).json({
-//       sucesso: true,
-//       dados: Participante,
-//     });
+    res.status(200).json({
+      sucesso: true,
+      dados: participante,
+    });
 
-//   } catch (erro) {
-//     res.status(400).json({
-//       sucesso: false,
-//       erro: erro.message,
-//     });
-//   }
-// };
+  } catch (erro) {
+    res.status(400).json({
+      sucesso: false,
+      erro: erro.message,
+    });
+  }
+};
 
 // exports.updateParticipante = async(req, res) =>{
 //   try{
