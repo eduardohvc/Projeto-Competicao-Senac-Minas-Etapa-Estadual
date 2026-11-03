@@ -4,12 +4,74 @@ import editar from "../assets/editarBranco.png";
 import editar2 from "../assets/editarNovo.png";
 import deletar from "../assets/deletar.png";
 import deletar2 from "../assets/deletarNovo.png";
+import { useState } from "react";
 
 function Participante() {
+  const [id, setId] = useState(0);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [participante, setParticipante] = useState([]);
+  const [carregando, setCarregando] = useState(false);
+  const [lista, setLista] = useState(false);
+  const [edicao, setEdicao] = useState(false);
+
+  const url = import.meta.env.VITE_URL;
+  const porta = import.meta.env.VITE_PORTA;
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setCarregando(true);
+    console.log(porta)
+
+    let metodo = "POST";
+    let dados = { nome, email, telefone };
+    let mensagem = "Cadastro caoncluído";
+    let rota = `${url}:${porta}/api/participante`;
+
+    if (edicao) {
+      metodo = "PUT";
+      dados = { ...dados, id };
+      mensagem = "Atualizado com sucesso";
+      rota += `/${id}`;
+    }
+
+    try {
+      const response = await fetch(rota, {
+        method: metodo,
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(dados),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(mensagem);
+        setId(0);
+        setNome("");
+        setEmail("");
+        setTelefone("");
+      } else {
+        alert(data.erro);
+        setId(0);
+        setNome("");
+        setEmail("");
+        setTelefone("");
+      }
+
+      setCarregando(false);
+      setEdicao(false);
+    } catch (erro) {
+      alert(`Não foi possível fazer a conexão. Erro:${erro}`);
+    }
+  }
+
   return (
     <section className={style.secCorpo}>
       <h2>Participante</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <p>
           <label htmlFor="nome">Nome</label>
         </p>
@@ -18,23 +80,33 @@ function Participante() {
           mask={"_".repeat(100)}
           replacement={{ _: /[a-zA-ZÀ-ý\s\-]/ }}
           required
+          onChange={(e) => setNome(e.target.value)}
+          value={nome}
         ></InputMask>
         <p>
           <label htmlFor="email">Email</label>
         </p>
-        <input type="email" id="email" required />
+        <input
+          type="email"
+          id="email"
+          required
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
         <p>
           <label htmlFor="telefone">Telefone</label>
         </p>
         <InputMask
           id="telefone"
-          mask={"__ _____ ____"}
+          mask={"(__) _____-____"}
           replacement={{ _: /\d/ }}
           required
+          onChange={(e) => setTelefone(e.target.value)}
+          value={telefone}
         ></InputMask>
         <div>
           <button>Cadastrar</button>
-          <button>Listar</button>
+          <button type="button">Listar</button>
         </div>
       </form>
       <table border={1}>

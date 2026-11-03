@@ -1,6 +1,10 @@
 const { Participante } = require("../models/Participante");
 
 const createParticipante = async ({ nome, email, telefone }) => {
+  if (!nome || !email || !telefone) {
+    throw new Error("Preencha todos os campos corretamente");
+  }
+
   const emailRep = await Participante.findOne({
     where: {
       email: email,
@@ -11,12 +15,10 @@ const createParticipante = async ({ nome, email, telefone }) => {
     throw new Error("Este email já está cadastrado");
   }
 
-  if (String(telefone).trim().length !== 11) {
-    throw new Error("Seu telefone precisa ter 11 números. Ex: 00 00000 0000");
-  }
+  const apenasNumero = String(telefone).replace(/\D/g, "");
 
-  if (!nome || !email || !telefone) {
-    throw new Error("Preencha todos os campos corretamente");
+  if (apenasNumero.length !== 11) {
+    throw new Error("Seu telefone precisa ter 11 números. Ex: 00 00000 0000");
   }
 
   const participante = await Participante.create({ nome, email, telefone });
@@ -49,7 +51,9 @@ const updateParticipante = async (id, { nome, email, telefone }) => {
     }
   }
 
-  if (String(telefone).trim().length !== 11) {
+  const apenasNumero = String(telefone).replace(/\D/g, "");
+
+  if (apenasNumero.length !== 11) {
     throw new Error("Seu telefone precisa ter 11 números. Ex: 00 00000 0000");
   }
 
@@ -66,21 +70,21 @@ const updateParticipante = async (id, { nome, email, telefone }) => {
   return participante;
 };
 
-const deleteParticipante = async(id) =>{
-  const participante = await Participante.findByPk(id)
+const deleteParticipante = async (id) => {
+  const participante = await Participante.findByPk(id);
 
   if (!participante) {
     throw new Error("Não foi possível encontrar está Participante");
   }
 
-  participante.destroy()
+  participante.destroy();
 
-  return participante
-}
+  return participante;
+};
 
 module.exports = {
   createParticipante,
   getParticipante,
   updateParticipante,
-  deleteParticipante
+  deleteParticipante,
 };
