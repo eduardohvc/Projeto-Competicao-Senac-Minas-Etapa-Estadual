@@ -22,7 +22,7 @@ function Participante() {
   async function handleSubmit(e) {
     e.preventDefault();
     setCarregando(true);
-    console.log(porta)
+    console.log(porta);
 
     let metodo = "POST";
     let dados = { nome, email, telefone };
@@ -68,6 +68,30 @@ function Participante() {
     }
   }
 
+  const handleConsulta = async () => {
+    let rota = `${url}:${porta}/api/participante`;
+
+    setCarregando(true);
+    setLista(!lista);
+    setParticipante([]);
+
+    try {
+      const response = await fetch(rota);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setParticipante(data.dados);
+      } else {
+        alert(data.erro);
+      }
+
+      setCarregando(false);
+    } catch (erro) {
+      alert(`Não foi possível fazer a conexão. Erro:${erro}`);
+    }
+  };
+
   return (
     <section className={style.secCorpo}>
       <h2>Participante</h2>
@@ -106,10 +130,12 @@ function Participante() {
         ></InputMask>
         <div>
           <button>Cadastrar</button>
-          <button type="button">Listar</button>
+          <button type="button" onClick={handleConsulta}>
+            Listar
+          </button>
         </div>
       </form>
-      <table border={1}>
+      <table border={1} style={{ display: lista ? "table" : "none" }}>
         <thead>
           <tr>
             <th>Nome</th>
@@ -124,17 +150,23 @@ function Participante() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Nome</td>
-            <td>Email</td>
-            <td>Telefone</td>
-            <td>
-              <img src={editar2} alt="Botão para editar componentes" />
-            </td>
-            <td>
-              <img src={deletar2} alt="Botão para deletar componentes" />
-            </td>
-          </tr>
+          {carregando ? (
+            <></>
+          ) : (
+            participante.map((e) => (
+              <tr key={e.id}>
+                <td>{e.nome}</td>
+                <td>{e.email}</td>
+                <td>{e.telefone}</td>
+                <td>
+                  <img src={editar2} alt="Botão para editar componentes" />
+                </td>
+                <td>
+                  <img src={deletar2} alt="Botão para deletar componentes" />
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </section>
