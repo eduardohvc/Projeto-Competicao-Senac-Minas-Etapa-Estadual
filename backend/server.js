@@ -3,6 +3,7 @@ require('dotenv').config()
 const { conexao } = require('./config/database')
 const cors = require('cors')
 const routeAtividade = require('./routes/routeAtividade.js')
+const routeParticipante = require('./routes/routeParticipante.js')
 // const { Atividade, Participante, Inscricao } = require('./models/Index')
 
 const app = express()
@@ -14,6 +15,7 @@ app.use(cors())
 conexao()
 
 app.use('/api/atividade', routeAtividade)
+app.use('/api/participante', routeParticipante)
 
 const porta = process.env.PORTA
 
