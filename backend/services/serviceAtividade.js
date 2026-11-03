@@ -1,4 +1,5 @@
 const { Atividade } = require("../models/Atividade");
+const { Inscricao } = require("../models/Inscricao");
 
 const createAtividade = async ({ titulo, descricao, quantidade }) => {
   if (quantidade <= 0) {
@@ -16,6 +17,16 @@ const createAtividade = async ({ titulo, descricao, quantidade }) => {
 
 const getAtividade = async () => {
   const atividade = await Atividade.findAll();
+
+  await Promise.all(atividade.map(async(e) =>{
+    const inscricao = await Inscricao.findAll({
+      where:{
+        atividadeID: e.id
+      }
+    })
+    e.dataValues.inscritos = inscricao.length
+    return e
+  }))
 
   if (!atividade) {
     throw new Error("Nenhuma atividade encontrada");
@@ -42,6 +53,16 @@ const updateAtividade = async (id, { titulo, descricao, quantidade }) => {
 
 const deleteAtividade = async(id) =>{
   const atividade = await Atividade.findByPk(id)
+
+  const inscrito = await Inscricao.findOne({
+    where:{
+      atividadeID: id
+    }
+  })
+
+  if(inscrito){
+    throw new Error('Não é possível apagar uma atividade que já possuí inscrições')
+  }
 
   if (!atividade) {
     throw new Error("Não foi possível encontrar está atividade");
