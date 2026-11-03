@@ -9,6 +9,6 @@ roteador.get('/', controller.getParticipante)
 
 roteador.put('/:id', controller.updateParticipante)
 
-// roteador.delete('/:id', controller.deleteParticipante)
+roteador.delete('/:id', controller.deleteParticipante)
 
 module.exports = roteador

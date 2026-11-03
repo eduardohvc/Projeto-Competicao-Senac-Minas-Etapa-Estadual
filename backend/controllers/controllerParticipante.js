@@ -55,19 +55,19 @@ exports.updateParticipante = async(req, res) =>{
   }
 }
 
-// exports.deleteParticipante = async(req, res) =>{
-//   try{
-//     const Participante = await service.deleteParticipante(req.params.id)
+exports.deleteParticipante = async(req, res) =>{
+  try{
+    const participante = await service.deleteParticipante(req.params.id)
 
-//     res.status(200).json({
-//       sucesso: true,
-//       dados: Participante,
-//     });
+    res.status(200).json({
+      sucesso: true,
+      dados: participante,
+    });
 
-//   }catch(erro){
-//     res.status(400).json({
-//       sucesso: false,
-//       erro: erro.message,
-//     });
-//   }
-// }
+  }catch(erro){
+    res.status(400).json({
+      sucesso: false,
+      erro: erro.message,
+    });
+  }
+}

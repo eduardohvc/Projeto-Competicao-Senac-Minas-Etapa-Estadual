@@ -66,21 +66,21 @@ const updateParticipante = async (id, { nome, email, telefone }) => {
   return participante;
 };
 
-// const deleteParticipante = async(id) =>{
-//   const Participante = await Participante.findByPk(id)
+const deleteParticipante = async(id) =>{
+  const participante = await Participante.findByPk(id)
 
-//   if (!Participante) {
-//     throw new Error("Não foi possível encontrar está Participante");
-//   }
+  if (!participante) {
+    throw new Error("Não foi possível encontrar está Participante");
+  }
 
-//   Participante.destroy()
+  participante.destroy()
 
-//   return Participante
-// }
+  return participante
+}
 
 module.exports = {
   createParticipante,
   getParticipante,
   updateParticipante,
-  // deleteParticipante
+  deleteParticipante
 };
