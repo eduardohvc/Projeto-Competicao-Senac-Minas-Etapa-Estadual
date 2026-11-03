@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --cor1: #1f4373;
+  --cor2: #f3f0f0;
+  --cor3: #1f43731e;
+  --cor4: #4b8be0;
+  --cor5: #dc7f7f;
+}
+
+.secCorpo{
+  text-align: center;
+}
+
+.secCorpo h2{
+  color: var(--cor1);
+  font-size: 350%;
+  margin-block: 2.5%;
+}
+
+.secCorpo label{
+  color: var(--cor1);
+  font-size: 170%;
+}
+
+.secCorpo input{
+  border: none;
+  border-radius: 7px;
+  background-color: var(--cor3);
+  width: 25vw;
+  padding: 1%;
+  margin-top: .5%;
+  margin-bottom: 1.5%;
+}
+
+.secCorpo textarea{
+  border: none;
+  border-radius: 7px;
+  background-color: var(--cor3);
+  width: 25vw;
+  padding: 1%;
+  margin-top: .5%;
+  margin-bottom: 1.5%;
+  resize: none;
+}
+
+.secCorpo select{
+  border: none;
+  border-radius: 7px;
+  background-color: var(--cor3);
+  font-size: 120%;
+  width: 25vw;
+  padding: 1%;
+  margin-top: .5%;
+  margin-bottom: 1.5%;
+}
+
+.secCorpo button{
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor1);
+  color: white;
+  font-size: 150%;
+  font-weight: bold;
+  border: none;
+  border-radius: 7px;
+  width: 35vw;
+  height: 10vh;
+  margin-block: 2.5%;
+}
+
+.secCorpo table{
+  width: 100%;
+  font-size: 2.5vw;
+  border-collapse: collapse;
+}
+
+.secCorpo th{
+  background-color: var(--cor1);
+  color: white;
+  padding: 1%;
+  width: 15vw;
+}
+
+.secCorpo table img{
+  width: 15%;
+}

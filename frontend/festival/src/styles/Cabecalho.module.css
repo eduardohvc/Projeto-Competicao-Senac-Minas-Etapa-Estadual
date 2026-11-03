@@ -59,3 +59,9 @@
   font-size: 120%;
   font-weight: bold;
 }
+
+.footer{
+  background-color: var(--cor1);
+  color: white;
+  text-align: center;
+}

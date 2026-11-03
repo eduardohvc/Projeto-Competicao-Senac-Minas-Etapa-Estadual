@@ -1,6 +1,8 @@
+import style from "../styles/Cabecalho.module.css";
+
 function Footer() {
   return (
-    <p>Festival Experiência Viva - 2026</p>
+    <p className={style.footer}>Festival Experiência Viva - 2026</p>
   )
 }
 
