@@ -5,7 +5,7 @@ const roteador = express.Router()
 
 roteador.post('/', controller.createAtividade)
 
-// roteador.get('/', controller.getAtividade)
+roteador.get('/', controller.getAtividade)
 
 // roteador.put('/', controller.updateAtividade)
 

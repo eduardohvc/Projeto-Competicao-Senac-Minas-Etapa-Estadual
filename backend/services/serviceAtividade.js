@@ -15,6 +15,18 @@ const createAtividade = async({titulo, descricao, quantidade}) =>{
   return atividade
 }
 
+const getAtividade = async() =>{
+  const atividade = await Atividade.findAll()
+
+  if(!atividade){
+    throw new Error('Nenhuma atividade encontrada')
+  }
+
+  return atividade
+
+}
+
 module.exports ={
-  createAtividade
+  createAtividade,
+  getAtividade
 }
