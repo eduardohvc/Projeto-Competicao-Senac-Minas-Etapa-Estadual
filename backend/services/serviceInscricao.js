@@ -1,50 +1,51 @@
 const { Inscricao } = require("../models/Inscricao");
-const { Participante } = require("../models/Participante")
-const { Atividade } = require("../models/Atividade")
+const { Participante } = require("../models/Participante");
+const { Atividade } = require("../models/Atividade");
 
 const createInscricao = async ({ participanteID, atividadeID }) => {
-
   const participante = await Participante.findOne({
-    where:{
-      id: participanteID
-    }
-  })
+    where: {
+      id: participanteID,
+    },
+  });
 
   const atividade = await Atividade.findOne({
-    where:{
-      id: atividadeID
-    }
-  })
+    where: {
+      id: atividadeID,
+    },
+  });
 
-  if(!participante){
-    throw new Error('Participante não encontrado')
+  if (!participante) {
+    throw new Error("Participante não encontrado");
   }
 
-  if(!atividade){
-    throw new Error('Atividade não encontrada')
+  if (!atividade) {
+    throw new Error("Atividade não encontrada");
   }
 
   const jaInscrito = await Inscricao.findOne({
-    where:{
+    where: {
       atividadeID: atividadeID,
-      participanteID: participanteID
-    }
-  })
+      participanteID: participanteID,
+    },
+  });
 
-  if(jaInscrito){
-    throw new Error('Está inscrição já está cadastrada')
+  if (jaInscrito) {
+    throw new Error("Está inscrição já está cadastrada");
   }
 
   const vagas = await Inscricao.findAll({
-    where:{
-      atividadeID: atividadeID
-    }
-  })
+    where: {
+      atividadeID: atividadeID,
+    },
+  });
 
-  if(vagas.length >= atividade.quantidade){
-    throw new Error('Não é possível se inscrever pois as vagas desta atividade esgotaram')
+  if (vagas.length >= atividade.quantidade) {
+    throw new Error(
+      "Não é possível se inscrever pois as vagas desta atividade esgotaram"
+    );
   }
- 
+
   if (!participanteID || !atividadeID) {
     throw new Error("Preencha todos os campos corretamente");
   }
@@ -54,47 +55,66 @@ const createInscricao = async ({ participanteID, atividadeID }) => {
   return inscricao;
 };
 
-// const getInscricao = async () => {
-//   const Inscricao = await Inscricao.findAll();
+const getInscricao = async () => {
+  const inscricao = await Inscricao.findAll();
 
-//   if (!Inscricao) {
-//     throw new Error("Nenhum Inscricao encontrado");
-//   }
+  if (!inscricao) {
+    throw new Error("Nenhum Inscricao encontrado");
+  }
 
-//   return Inscricao;
-// };
+  return inscricao;
+};
 
-// const updateInscricao = async (id, { participanteID, atividadeID, telefone }) => {
-//   const Inscricao = await Inscricao.findByPk(id);
+const updateInscricao = async (id, { participanteID, atividadeID }) => {
+  const inscricao = await Inscricao.findByPk(id);
 
-//   if (atividadeID !== Inscricao.atividadeID) {
-//     const atividadeIDRep = await Inscricao.findOne({
-//       where: {
-//         atividadeID: atividadeID,
-//       },
-//     });
+  const participante = await Participante.findOne({
+    where: {
+      id: participanteID,
+    },
+  });
 
-//     if (atividadeIDRep) {
-//       throw new Error("Este atividadeID já está cadastrado");
-//     }
-//   }
+  const atividade = await Atividade.findOne({
+    where: {
+      id: atividadeID,
+    },
+  });
 
-//   if (String(telefone).trim().length !== 11) {
-//     throw new Error("Seu telefone precisa ter 11 números. Ex: 00 00000 0000");
-//   }
+  if (!participante) {
+    throw new Error("Participante não encontrado");
+  }
 
-//   if (!Inscricao) {
-//     throw new Error("Não foi possível encontrar está Inscricao");
-//   }
+  if (!atividade) {
+    throw new Error("Atividade não encontrada");
+  }
 
-//   Inscricao.update({
-//     participanteID: participanteID || Inscricao.participanteID,
-//     atividadeID: atividadeID || Inscricao.atividadeID,
-//     telefone: telefone || Inscricao.telefone,
-//   });
+  if (
+    participanteID !== inscricao.participanteID ||
+    atividadeID !== inscricao.atividadeID
+  ) {
+    const jaInscrito = await Inscricao.findOne({
+      where: {
+        atividadeID: atividadeID,
+        participanteID: participanteID,
+      },
+    });
 
-//   return Inscricao;
-// };
+    if (jaInscrito) {
+      throw new Error("Está inscrição já está cadastrada");
+    }
+  }
+
+  if (!inscricao) {
+    throw new Error("Não foi possível encontrar está Inscricao");
+  }
+
+  inscricao.update({
+    participanteID: participanteID || inscricao.participanteID,
+    atividadeID: atividadeID || inscricao.atividadeID,
+  });
+
+  return inscricao;
+};
 
 // const deleteInscricao = async(id) =>{
 //   const Inscricao = await Inscricao.findByPk(id)
@@ -110,7 +130,7 @@ const createInscricao = async ({ participanteID, atividadeID }) => {
 
 module.exports = {
   createInscricao,
-  // getInscricao,
-  // updateInscricao,
+  getInscricao,
+  updateInscricao,
   // deleteInscricao
 };

@@ -5,9 +5,9 @@ const roteador = express.Router()
 
 roteador.post('/', controller.createInscricao)
 
-// roteador.get('/', controller.getInscricao)
+roteador.get('/', controller.getInscricao)
 
-// roteador.put('/:id', controller.updateInscricao)
+roteador.put('/:id', controller.updateInscricao)
 
 // roteador.delete('/:id', controller.deleteInscricao)
 

@@ -20,39 +20,39 @@ exports.createInscricao = async (req, res) => {
   }
 };
 
-// exports.getInscricao = async (req, res) => {
-//   try {
-//     const Inscricao = await service.getInscricao()
+exports.getInscricao = async (req, res) => {
+  try {
+    const inscricao = await service.getInscricao()
 
-//     res.status(200).json({
-//       sucesso: true,
-//       dados: Inscricao,
-//     });
+    res.status(200).json({
+      sucesso: true,
+      dados: inscricao,
+    });
 
-//   } catch (erro) {
-//     res.status(400).json({
-//       sucesso: false,
-//       erro: erro.message,
-//     });
-//   }
-// };
+  } catch (erro) {
+    res.status(400).json({
+      sucesso: false,
+      erro: erro.message,
+    });
+  }
+};
 
-// exports.updateInscricao = async(req, res) =>{
-//   try{
-//     const Inscricao = await service.updateInscricao(req.params.id, req.body)
+exports.updateInscricao = async(req, res) =>{
+  try{
+    const inscricao = await service.updateInscricao(req.params.id, req.body)
 
-//     res.status(200).json({
-//       sucesso: true,
-//       dados: Inscricao,
-//     });
+    res.status(200).json({
+      sucesso: true,
+      dados: inscricao,
+    });
 
-//   }catch(erro){
-//     res.status(400).json({
-//       sucesso: false,
-//       erro: erro.message,
-//     });
-//   }
-// }
+  }catch(erro){
+    res.status(400).json({
+      sucesso: false,
+      erro: erro.message,
+    });
+  }
+}
 
 // exports.deleteInscricao = async(req, res) =>{
 //   try{
