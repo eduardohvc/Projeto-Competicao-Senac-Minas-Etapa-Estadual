@@ -7,7 +7,7 @@ roteador.post('/', controller.createParticipante)
 
 roteador.get('/', controller.getParticipante)
 
-// roteador.put('/:id', controller.updateParticipante)
+roteador.put('/:id', controller.updateParticipante)
 
 // roteador.delete('/:id', controller.deleteParticipante)
 

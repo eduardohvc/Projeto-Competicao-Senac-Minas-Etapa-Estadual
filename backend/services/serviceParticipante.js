@@ -1,15 +1,14 @@
 const { Participante } = require("../models/Participante");
 
 const createParticipante = async ({ nome, email, telefone }) => {
+  const emailRep = await Participante.findOne({
+    where: {
+      email: email,
+    },
+  });
 
- const emailRep = await Participante.findOne({
-  where:{
-    email: email
-  }
- })
-    
-  if(emailRep){
-    throw new Error('Este email já está cadastrado')
+  if (emailRep) {
+    throw new Error("Este email já está cadastrado");
   }
 
   if (String(telefone).trim().length !== 11) {
@@ -35,21 +34,37 @@ const getParticipante = async () => {
   return participante;
 };
 
-// const updateParticipante = async (id, { nome, email, telefone }) => {
-//   const Participante = await Participante.findByPk(id);
+const updateParticipante = async (id, { nome, email, telefone }) => {
+  const participante = await Participante.findByPk(id);
 
-//   if (!Participante) {
-//     throw new Error("Não foi possível encontrar está Participante");
-//   }
+  if (email !== participante.email) {
+    const emailRep = await Participante.findOne({
+      where: {
+        email: email,
+      },
+    });
 
-//   Participante.update({
-//     nome: nome || Participante.nome,
-//     email: email || Participante.email,
-//     telefone: telefone || Participante.telefone,
-//   });
+    if (emailRep) {
+      throw new Error("Este email já está cadastrado");
+    }
+  }
 
-//   return Participante;
-// };
+  if (String(telefone).trim().length !== 11) {
+    throw new Error("Seu telefone precisa ter 11 números. Ex: 00 00000 0000");
+  }
+
+  if (!participante) {
+    throw new Error("Não foi possível encontrar está Participante");
+  }
+
+  participante.update({
+    nome: nome || participante.nome,
+    email: email || participante.email,
+    telefone: telefone || participante.telefone,
+  });
+
+  return participante;
+};
 
 // const deleteParticipante = async(id) =>{
 //   const Participante = await Participante.findByPk(id)
@@ -66,6 +81,6 @@ const getParticipante = async () => {
 module.exports = {
   createParticipante,
   getParticipante,
-  // updateParticipante,
+  updateParticipante,
   // deleteParticipante
 };
