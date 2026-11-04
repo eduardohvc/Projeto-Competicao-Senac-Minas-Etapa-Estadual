@@ -160,6 +160,14 @@
   margin-left: 20%;
 }
 
+h3{
+  color: var(--cor1);
+  font-size: 250%;
+  margin-block: 2.5%;
+  padding-block: 3%;
+  border-block: 3px solid var(--cor1);
+}
+
 /* ---------------------------------------------------------------------------------Tablet------------------------------------------------------------------------------------- */
 
 @media (max-width: 820px) {
@@ -355,4 +363,8 @@
   .tableMenu{
     display: none;
   }
+}
+
+h3{
+  margin-block: 7%;
 }

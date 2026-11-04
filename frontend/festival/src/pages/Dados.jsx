@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import style from '../styles/Corpo.module.css'
 
 function Dados(){
   const [atividade, setAtividade] = useState([])
@@ -100,7 +101,7 @@ function Dados(){
   handleConsultaP()
 
   return(
-    <section>
+    <section className={style.secCorpo}>
       <h2>Dados</h2>
 
       <h3>Participantes</h3>
