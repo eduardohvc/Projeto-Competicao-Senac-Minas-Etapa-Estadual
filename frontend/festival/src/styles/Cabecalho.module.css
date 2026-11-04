@@ -60,6 +60,14 @@
   font-weight: bold;
 }
 
+.secCabecalho nav button:hover{
+  background-color: var(--cor4);
+  color: white;
+
+  transition: .3s ease;
+  cursor: pointer;
+}
+
 .footer{
   background-color: var(--cor1);
   color: white;
