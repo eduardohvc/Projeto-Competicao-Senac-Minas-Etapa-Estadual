@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-:root{
+:root {
   --cor1: #1f4373;
   --cor2: #f3f0f0;
   --cor3: #1f43731e;
@@ -13,7 +13,7 @@
   --cor5: #dc7f7f;
 }
 
-.secCabecalho{
+.secCabecalho {
   display: flex;
   gap: 3%;
   background-color: var(--cor1);
@@ -23,53 +23,121 @@
   margin-inline: 5%;
 }
 
-.secCabecalho div{
+.secCabecalho div {
   display: flex;
   gap: 5%;
   background-color: white;
   border-radius: 9999px;
   width: 17vw;
-  padding: .5%;
+  padding: 0.5%;
 }
 
-.secCabecalho div h1{
+.secCabecalho div h1 {
   font-size: 150%;
   text-align: center;
   color: var(--cor1);
 }
 
-.secCabecalho div img{
+.secCabecalho div img {
   width: 25%;
   margin-left: 5%;
 }
 
-.secCabecalho nav{
+.secCabecalho nav {
   display: flex;
-  gap: 8%;
+  gap: 5%;
   align-items: center;
 }
 
-.secCabecalho nav button{
+.secCabecalho nav button {
   border: none;
   border-radius: 9999px;
   background-color: white;
   color: var(--cor1);
-  width: 13vw;
+  width: 11vw;
   height: 5vh;
   font-size: 120%;
   font-weight: bold;
 }
 
-.secCabecalho nav button:hover{
+.secCabecalho nav button:hover {
   background-color: var(--cor4);
   color: white;
 
-  transition: .3s ease;
+  transition: 0.3s ease;
   cursor: pointer;
 }
 
-.footer{
+.footer {
   background-color: var(--cor1);
   color: white;
   text-align: center;
+}
+
+.divMenu {
+  display: none;
+}
+
+.secMenu {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .divMenu {
+    display: flex;
+    gap: 55%;
+    border-bottom: 5px solid var(--cor1);
+    padding-bottom: 5%;
+  }
+
+  .divMenu img {
+    width: 15%;
+    height: auto;
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+
+  .secMenu {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor1);
+
+    height: 0;
+    overflow: hidden;
+    transition: height 1s ease;
+  }
+
+  .secMenu h1 {
+    color: white;
+    font-size: 230%;
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  .secMenu nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25%;
+  }
+
+  .secMenu button {
+    border: none;
+    background-color: var(--cor1);
+    color: white;
+    font-size: 170%;
+    font-weight: bold;
+    margin-left: 5%;
+  }
+
+  .secMenu.ativo {
+    height: 50vh;
+  }
+
+  .secCabecalho {
+    display: none;
+  }
+
+  .secMenu img {
+    display: none;
+  }
 }
