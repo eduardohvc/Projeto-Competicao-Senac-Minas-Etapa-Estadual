@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Participante from './pages/Participante.jsx'
 import Atividade from './pages/Atividade.jsx'
 import Inscricao from './pages/Inscricao.jsx'
+import Inicio from './pages/Inicio.jsx'
 import Cabecalho from './components/Cabecalho.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -13,7 +14,8 @@ function App() {
       <Router>
         <Cabecalho/>
         <Routes>
-          <Route path='/' element={<Participante/>} />
+        <Route path='/' element={<Inicio/>} />
+          <Route path='/participante' element={<Participante/>} />
           <Route path='/atividade' element={<Atividade/>} />
           <Route path='/inscricao' element={<Inscricao/>} />
         </Routes>

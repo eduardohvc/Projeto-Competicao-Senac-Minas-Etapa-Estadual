@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-:root{
+:root {
   --cor1: #1f4373;
   --cor2: #f3f0f0;
   --cor3: #1f43731e;
@@ -13,59 +13,59 @@
   --cor5: #dc7f7f;
 }
 
-.secCorpo{
+.secCorpo {
   text-align: center;
 }
 
-.secCorpo h2{
+.secCorpo h2 {
   color: var(--cor1);
   font-size: 350%;
   margin-block: 2.5%;
 }
 
-.secCorpo label{
+.secCorpo label {
   color: var(--cor1);
   font-size: 170%;
 }
 
-.secCorpo input{
+.secCorpo input {
   border: none;
   border-radius: 7px;
   background-color: var(--cor3);
   width: 25vw;
   padding: 1%;
-  margin-top: .5%;
+  margin-top: 0.5%;
   margin-bottom: 1.5%;
 }
 
-.secCorpo input:focus{
+.secCorpo input:focus {
   border: 5px solid var(--cor1);
 }
 
-.secCorpo textarea{
+.secCorpo textarea {
   border: none;
   border-radius: 7px;
   background-color: var(--cor3);
   font-family: Arial, Helvetica, sans-serif;
   width: 25vw;
   padding: 1%;
-  margin-top: .5%;
+  margin-top: 0.5%;
   margin-bottom: 1.5%;
   resize: none;
 }
 
-.secCorpo select{
-  border: none;   
+.secCorpo select {
+  border: none;
   border-radius: 7px;
   background-color: var(--cor3);
   font-size: 120%;
   width: 25vw;
   padding: 1%;
-  margin-top: .5%;
+  margin-top: 0.5%;
   margin-bottom: 1.5%;
 }
 
-.secCorpo button{
+.secCorpo button {
   display: flex;
   justify-self: center;
   align-items: center;
@@ -81,51 +81,81 @@
   margin-block: 2.5%;
 }
 
-.secCorpo button:hover{
+.secCorpo button:hover {
   background-color: var(--cor4);
   color: white;
 
-  transition: .3s ease;
+  transition: 0.3s ease;
   cursor: pointer;
 }
 
-.secCorpo button:focus{
+.secCorpo button:focus {
   border: 5px solid var(--cor4);
 }
 
-.secCorpo table{
+.secCorpo table {
   width: 100%;
   font-size: 2.5vw;
   border-collapse: collapse;
 }
 
-.secCorpo th{
+.secCorpo th {
   background-color: var(--cor1);
   color: white;
   padding: 1%;
   width: 15vw;
 }
 
-.secCorpo td{
+.secCorpo td {
   height: 15vh;
 }
 
-.secCorpo table img{
+.secCorpo table img {
   width: 18%;
 }
 
-.secCorpo table td a img:hover{
+.secCorpo table td a img:hover {
   background-color: var(--cor4);
   border-radius: 7px;
 
   transform: scale(1.5);
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.secCorpo table td img:hover{
+.secCorpo table td img:hover {
   background-color: var(--cor5);
   border-radius: 7px;
 
   transform: scale(1.5);
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.secCorpo .divInicio h3 {
+  color: var(--cor1);
+  font-size: 250%;
+  margin-block: 1.5%;
+}
+
+.secCorpo .divInicio p {
+  color: var(--cor1);
+  font-size: 150%;
+  margin-inline: 5%;
+  margin-block: 1.5%;
+  line-height: 125%;
+  text-align: justify;
+}
+
+.secCorpo .divInicio ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.secCorpo .divInicio li{
+  color: var(--cor1);
+  font-size: 150%;
+  margin-block: 1.5%;
+  text-align: left;
+  margin-left: 20%;
 }

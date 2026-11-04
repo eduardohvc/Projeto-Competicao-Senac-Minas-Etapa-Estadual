@@ -1,6 +1,6 @@
 import logo from "../assets/logoNova.png";
 import { Link } from "react-router-dom";
-import style from '../styles/Cabecalho.module.css'
+import style from "../styles/Cabecalho.module.css";
 
 function Cabecalho() {
   return (
@@ -13,6 +13,9 @@ function Cabecalho() {
       </div>
       <nav>
         <Link to="/">
+          <button>Inicio</button>
+        </Link>
+        <Link to="/participante">
           <button>Participante</button>
         </Link>
         <Link to="/atividade">
