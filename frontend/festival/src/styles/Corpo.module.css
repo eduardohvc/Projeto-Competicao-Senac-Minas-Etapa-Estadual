@@ -90,6 +90,10 @@
   width: 15vw;
 }
 
+.secCorpo td{
+  height: 15vh;
+}
+
 .secCorpo table img{
   width: 15%;
 }
