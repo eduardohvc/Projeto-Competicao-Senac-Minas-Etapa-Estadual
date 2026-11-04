@@ -172,7 +172,7 @@ function Atividade() {
           <tr>
             <th>Título</th>
             <th>Quantidade</th>
-            <th>Descrição</th>
+            <th className={style.tableMenu}>Descrição</th>
             <th>
               <img src={editar} alt="Ícone para editar componentes" />
             </th>
@@ -189,7 +189,7 @@ function Atividade() {
               <tr key={e.id}>
                 <td>{e.titulo}</td>
                 <td>{e.quantidade}</td>
-                <td>{e.descricao}</td>
+                <td className={style.tableMenu}>{e.descricao}</td>
                 <td>
                   <a href="#tit">
                     <img

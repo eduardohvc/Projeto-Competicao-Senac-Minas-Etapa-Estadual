@@ -152,10 +152,104 @@
   list-style-position: inside;
 }
 
-.secCorpo .divInicio li{
+.secCorpo .divInicio li {
   color: var(--cor1);
   font-size: 150%;
   margin-block: 1.5%;
   text-align: left;
   margin-left: 20%;
+}
+
+/* ---------------------------------------------------------------------------------Mobile------------------------------------------------------------------------------------- */
+
+@media (max-width: 576px) {
+  .secCorpo {
+    min-height: 77vh;
+  }
+
+  .secCorpo h2 {
+    margin-block: 20%;
+    
+  }
+
+  .secCorpo label {
+    font-size: 190%;
+  }
+
+  .secCorpo input {
+    width: 65vw;
+    padding: 3%;
+    margin-top: 1.5%;
+    margin-bottom: 3.5%;
+    font-size: 150%;
+  }
+
+  .secCorpo textarea {
+    width: 65vw;
+    padding: 3%;
+    margin-top: 1.5%;
+    margin-bottom: 3.5%;
+    font-size: 150%;
+  }
+
+  .secCorpo select {
+    width: 65vw;
+    padding: 3%;
+    margin-top: 1.5%;
+    margin-bottom: 3.5%;
+  }
+
+  .secCorpo form div{
+    display: flex;
+    gap: 5%;
+    justify-self: center;
+  }
+
+  .secCorpo button {
+    font-size: 170%;
+    width: 45vw;
+    height: 6.5vh;
+    margin-block: 5.5%;
+  }
+
+  .secCorpo table {
+    width: 100%;
+    font-size: 4vw;
+  }
+
+  .secCorpo td {
+    height: 10vh;
+  }
+
+  .secCorpo table img {
+    width: 40%;
+  }
+
+  .secCorpo table td img:hover {
+    background-color: var(--cor5);
+    border-radius: 7px;
+
+    transform: scale(1.5);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .secCorpo .divInicio h3 {
+    color: var(--cor1);
+    font-size: 200%;
+    margin-block: 5.5%;
+  }
+
+  .secCorpo .divInicio p {
+    margin-block: 1.5%;
+    margin-top: 5%;
+  }
+
+  .secCorpo .divInicio li {
+    margin-left: 10%;
+  }
+
+  .tableMenu{
+    display: none;
+  }
 }

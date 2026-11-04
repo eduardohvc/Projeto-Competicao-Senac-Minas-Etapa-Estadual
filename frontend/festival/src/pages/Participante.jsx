@@ -171,9 +171,9 @@ function Participante() {
       <table border={1} style={{ display: lista ? "table" : "none" }}>
         <thead>
           <tr>
-            <th>Nome</th>
+            <th className={style.tableMenu}>Nome</th>
             <th>Email</th>
-            <th>Telefone</th>
+            <th className={style.tableMenu}>Telefone</th>
             <th>
               <img src={editar} alt="Ícone para editar componentes" />
             </th>
@@ -188,9 +188,9 @@ function Participante() {
           ) : (
             participante.map((e) => (
               <tr key={e.id}>
-                <td>{e.nome}</td>
+                <td className={style.tableMenu}>{e.nome}</td>
                 <td>{e.email}</td>
-                <td>{e.telefone}</td>
+                <td className={style.tableMenu}>{e.telefone}</td>
                 <td>
                   <a href="#tit">
                     <img
