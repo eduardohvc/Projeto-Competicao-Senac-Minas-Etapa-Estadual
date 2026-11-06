@@ -134,6 +134,11 @@
 
 .secCorpo .divInicio h3 {
   color: var(--cor1);
+  /* border: 5px solid var(--cor4); */
+  background-color: var(--cor3);
+  border-radius: 9999px;
+  padding: 1%;
+  margin-inline: 3.5%;
   font-size: 250%;
   margin-block: 1.5%;
 }
@@ -160,12 +165,24 @@
   margin-left: 20%;
 }
 
-h3{
-  color: var(--cor1);
+.secCorpo .divDados table{
+  width: 85%;
+  justify-self: center;
+}
+
+.secCorpo .divDados th{
+  border: 1px solid black ;
+  background-color: var(--cor1);
+}
+
+.secCorpo .divDados h3{
+  color: white;
+  background-color: var(--cor4);
+  border-radius: 9999px;
   font-size: 250%;
-  margin-block: 2.5%;
-  padding-block: 3%;
-  border-block: 3px solid var(--cor1);
+  margin-block: 3.5%;
+  margin-inline: 2%;
+  padding: 1%;
 }
 
 /* ---------------------------------------------------------------------------------Tablet------------------------------------------------------------------------------------- */
@@ -244,7 +261,7 @@ h3{
   }
 
   .secCorpo .divInicio h3 {
-    color: var(--cor1);
+    color: white;
     font-size: 200%;
     margin-block: 5.5%;
     margin-inline: 2%;
@@ -342,7 +359,7 @@ h3{
   }
 
   .secCorpo .divInicio h3 {
-    color: var(--cor1);
+    color: white;
     font-size: 200%;
     margin-block: 5.5%;
     margin-inline: 2%;

@@ -130,7 +130,7 @@ function Participante() {
       <h2>Participante</h2>
       <form onSubmit={handleSubmit}>
         <p>
-          <label htmlFor="nome">Nome</label>
+          <label aria-label="Campo de nome" htmlFor="nome">Nome</label>
         </p>
         <InputMask
           id="nome"
@@ -141,7 +141,7 @@ function Participante() {
           value={nome}
         ></InputMask>
         <p>
-          <label htmlFor="email">Email</label>
+          <label aria-label="Campo de email" htmlFor="email">Email</label>
         </p>
         <input
           type="email"
@@ -151,7 +151,7 @@ function Participante() {
           value={email}
         />
         <p>
-          <label htmlFor="telefone">Telefone</label>
+          <label aria-label="Campo de telefone" htmlFor="telefone">Telefone</label>
         </p>
         <InputMask
           id="telefone"

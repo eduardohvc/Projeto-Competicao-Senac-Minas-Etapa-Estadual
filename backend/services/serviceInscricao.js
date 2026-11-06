@@ -1,6 +1,6 @@
-const { Inscricao } = require("../models/Inscricao");
-const { Participante } = require("../models/Participante");
-const { Atividade } = require("../models/Atividade");
+const { Inscricao } = require("../models/inscricao");
+const { Participante } = require("../models/participante");
+const { Atividade } = require("../models/atividade");
 
 const createInscricao = async ({ participanteID, atividadeID }) => {
   const participante = await Participante.findOne({

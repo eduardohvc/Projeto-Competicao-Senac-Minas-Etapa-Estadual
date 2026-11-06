@@ -129,7 +129,7 @@ function Atividade() {
       <h2>Atividade</h2>
       <form onSubmit={handleSubmit}>
         <p>
-          <label htmlFor="titulo">Título</label>
+          <label aria-label="Campo de título" htmlFor="titulo">Título</label>
         </p>
         <InputMask
           id="titulo"
@@ -140,7 +140,7 @@ function Atividade() {
           value={titulo}
         ></InputMask>
         <p>
-          <label htmlFor="quantidade">Quantidade</label>
+          <label aria-label="Campo de quantidade" htmlFor="quantidade">Quantidade</label>
         </p>
         <input
           type="number"
@@ -150,7 +150,7 @@ function Atividade() {
           value={quantidade}
         />
         <p>
-          <label htmlFor="descricao">Descrição</label>
+          <label aria-label="Campo de descricao" htmlFor="descricao">Descrição</label>
         </p>
         <textarea
           id="descricao"
@@ -171,7 +171,7 @@ function Atividade() {
         <thead>
           <tr>
             <th>Título</th>
-            <th>Quantidade</th>
+            <th>Vagas</th>
             <th className={style.tableMenu}>Descrição</th>
             <th>
               <img src={editar} alt="Ícone para editar componentes" />

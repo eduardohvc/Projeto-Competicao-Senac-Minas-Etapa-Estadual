@@ -140,7 +140,7 @@ function Inscricao() {
       <h2>Inscricao</h2>
       <form onSubmit={handleSubmit}>
         <p>
-          <label htmlFor="participante">Participante</label>
+          <label aria-label="Campo de participante" htmlFor="participante">Participante</label>
         </p>
         <select
           id="participante"
@@ -156,7 +156,7 @@ function Inscricao() {
           ))}
         </select>
         <p>
-          <label htmlFor="atividade">Atividade</label>
+          <label aria-label="Campo de atividade" htmlFor="atividade">Atividade</label>
         </p>
         <select
           id="atividade"
@@ -181,8 +181,8 @@ function Inscricao() {
       <table border={1} style={{ display: lista ? "table" : "none" }}>
         <thead>
           <tr>
-            <th>Nome</th>
             <th>Email</th>
+            <th>Título</th>
             <th>
               <img src={deletar} alt="Ícone para deletar componentes" />
             </th>

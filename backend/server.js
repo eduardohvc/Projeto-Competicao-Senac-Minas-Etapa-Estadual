@@ -5,7 +5,7 @@ const cors = require('cors')
 const routeAtividade = require('./routes/routeAtividade.js')
 const routeParticipante = require('./routes/routeParticipante.js')
 const routeInscricao = require('./routes/routeInscricao.js')
-// const { Atividade, Participante, Inscricao } = require('./models/Index')
+// const { Atividade, Participante, Inscricao } = require('./models/index')
 
 const app = express()
 

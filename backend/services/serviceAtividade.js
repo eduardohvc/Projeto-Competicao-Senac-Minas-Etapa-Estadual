@@ -1,4 +1,4 @@
-const { Atividade } = require("../models/Atividade");
+const { Atividade } = require("../models/atividade");
 const { Inscricao } = require("../models/Inscricao");
 
 const createAtividade = async ({ titulo, descricao, quantidade }) => {

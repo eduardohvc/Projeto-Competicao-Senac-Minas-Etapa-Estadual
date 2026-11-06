@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cor1: #1f4373;
+}
+
+.footer {
+  background-color: var(--cor1);
+  color: white;
+  text-align: center;
+}

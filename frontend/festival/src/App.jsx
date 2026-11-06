@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Participante from "./pages/Participante.jsx";
-import Atividade from "./pages/Atividade.jsx";
+import Atividade from "./pages/atividade.jsx";
 import Inscricao from "./pages/Inscricao.jsx";
 import Inicio from "./pages/Inicio.jsx";
 import Dados from "./pages/Dados.jsx";

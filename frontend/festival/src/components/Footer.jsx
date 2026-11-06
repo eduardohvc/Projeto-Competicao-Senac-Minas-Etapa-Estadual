@@ -1,4 +1,4 @@
-import style from "../styles/Cabecalho.module.css";
+import style from "../styles/Rodape.module.css";
 
 function Footer() {
   return (

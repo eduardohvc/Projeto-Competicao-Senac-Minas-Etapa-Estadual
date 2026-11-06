@@ -1,6 +1,6 @@
-const { Atividade } = require('./Atividade')
-const { Participante } = require('./Participante')
-const { Inscricao } = require('./Inscricao')
+const { Atividade } = require('./atividade')
+const { Participante } = require('./participante')
+const { Inscricao } = require('./inscricao')
 
 Participante.belongsToMany(Atividade,{
   through: Inscricao,

@@ -68,12 +68,6 @@
   cursor: pointer;
 }
 
-.footer {
-  background-color: var(--cor1);
-  color: white;
-  text-align: center;
-}
-
 .divMenu {
   display: none;
 }
